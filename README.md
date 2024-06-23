@@ -16,6 +16,16 @@
 
 ## 开发环境
 
+### 服务器配置
+
+GPU：RTX 3090(24GB)
+
+CPU：14 vCPU Intel(R) Xeon(R) Platinum 8362 CPU @ 2.80GHz
+
+PyTorch  1.11.0，Python  3.8(ubuntu20.04)，Cuda  11.3
+
+### 环境依赖
+
 代码编写是基于 Python 3.8.13 的下列依赖 
 
 - numpy == 1.22.3
@@ -67,6 +77,15 @@ Ren 等提出的这种分离对比学习方法，深入探讨了交互隐含意�
 
 ## 训练测试
 
+### 下载包
+从 Github 下载包
+
+```shell
+git clone https://github.com/SYSU-Zhangyp/Advanced-DCCF-main.git
+```
+
+### 训练举例
+
 训练 DCCF on the Gowalla / Amazon-book / Tmall 数据集的命令如下。
 
 训练 Advanced 需要灵活调整 epoch 的大小，并且测试结果保存到了 log 文件夹中。
@@ -94,6 +113,12 @@ Ren 等提出的这种分离对比学习方法，深入探讨了交互隐含意�
 <p align="center">
 <img src="figure/result.png" width = 600 alt="result" />
 </p>
+
+我们的 Advanced DCCF 模型在 Gowalla 数据集上改进表现最好，在四个评估指标上的平均改进比为 5.5%，最高的改进比是 NDCG@20 的 6.3%。
+
+下图展示了对比实验中 Advanced DCCF 与 DCCF 和 Light GCL 的召回率和标准化折损累积增益上的差异。
+
+一般来说，召回率越高，标准化折损累积增益越高，推荐模型的推荐效果就越好。
 
 <p align="center">
 <img src="figure/compare(Gowalla).png" width=400 alt="Compare Advanced DCCF/DCCF" />
